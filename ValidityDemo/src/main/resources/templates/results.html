@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <meta http-equiv="Content-Type" content="text/html; <=UTF-8" />
+
+<script th:inline="javascript">
+ 
+ var temp =  [(${resultList})]  ; 
+  
+</script> 
+<head>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+<H2 valign= "Center"> DUPLICATE ENTRIES</H2>
+<div id ="DUPLICATE_LIST_DIV" >
+	<ul style="list-style-type:disc" id ="DUPLICATE_LIST" > </ul>
+</div>
+
+<H2 valign= "Center"> UNIQUE ENTRIES</H2>
+<div id ="UNIQUE_LIST_DIV" >
+	<ul style="list-style-type:disc" id ="UNIQUE_LIST" > </ul>
+</div>
+ 
+</body>
+
+<script>  
+ 
+	var uniqueTxt = "";
+	for (i=0; i < temp.UNIQUE_LIST.length;i++ ) { 
+		for (j=0; j < temp.UNIQUE_LIST[i].length;j++ ) {  
+			uniqueTxt = uniqueTxt +"<li>"+temp.UNIQUE_LIST[i][j]+"</li> \n";  
+		}
+		 
+		if(i< temp.UNIQUE_LIST.length-1) {
+		
+			uniqueTxt = uniqueTxt + "<li></li>";
+		}
+	} 
+	  
+	 var dupeTxt = "";
+	 for (i=0; i < temp.DUPLICATE_LIST.length;i++ ) { 
+		 for (j=0; j < temp.DUPLICATE_LIST[1].length;j++ ) { 
+			dupeTxt = dupeTxt +"<li>"+temp.DUPLICATE_LIST[i][j]+"</li> \n";
+		 }
+		 
+		 if(i< temp.DUPLICATE_LIST.length-1) {
+			dupeTxt = dupeTxt + "  <br>";
+		}
+	 }
+	document.getElementById("DUPLICATE_LIST").innerHTML = dupeTxt;
+	document.getElementById("UNIQUE_LIST").innerHTML = uniqueTxt;
+</script>
+
+
+
+</html>
