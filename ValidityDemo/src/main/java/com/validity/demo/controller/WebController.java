@@ -84,7 +84,12 @@ public class WebController {
 			result.put(GROUPS.UNIQUE_LIST, uniqueList);
 			result.put(GROUPS.DUPLICATE_LIST, duplicateList);
 		}
-
+		//send the output to the std out
+		System.out.println("***************Unique LIST*************" );
+		result.get(GROUPS.UNIQUE_LIST).stream().forEach(u -> System.out.println(u));
+		System.out.println("***************Duplicate LIST*************" );
+		result.get(GROUPS.DUPLICATE_LIST).stream().forEach(u -> System.out.println(u));
+		
 		//convert into json
 		Gson gson = new Gson();
 
